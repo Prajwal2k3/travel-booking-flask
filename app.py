@@ -45,6 +45,6 @@ def book():
     flash("✅ Booking submitted successfully!")
     return redirect(url_for('home'))
 
-if __name__ == '__main__':
-    init_db()
-    app.run(debug=True)
+# Do not run app manually in Vercel; just expose it
+app = app
+
