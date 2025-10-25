@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Bus Reservation, Bus Offers, Bus Ticket Price, Bus Fare, Private Bus Booking, Bus Travel, Best Bus, bus route, track bus, buses, online booking, online tickets, bus tickets, ticket booking, initial-scale=1.0">
+  <title>Shree Chamundeshwari Tours & Travels</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <h1 class="logo">Shree Chamundeshwari Tours & Travels</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#OurServices">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero" id="home">
+      <h2>All Types of local & International vehicle rental available</h2>
+      <a href="#contact" class="btn">Book Now</a>
+    </div>
+    <!-- Search Section -->
+    <section class="search-section" style="display:flex; justify-content:center; align-items:center; margin-top:40px;">
+    <div style="background:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.1); border-radius:12px; padding:20px; display:flex; gap:10px; flex-wrap:wrap;">
+    
+    <!-- Origin -->
+    <select id="origin" style="padding:10px 15px; border:1px solid #ddd; border-radius:8px; min-width:180px;">
+      <option value="" disabled selected>Origin</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Hyderabad">Mysore</option>
+      <option value="Mysore">Hyderabad</option>
+      <option value="Mysore">Hassan</option> 
+    </select>
+
+    <!-- Destination -->
+    <select id="destination" style="padding:10px 15px; border:1px solid #ddd; border-radius:8px; min-width:180px;">
+      <option value="" disabled selected>Destination</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Chennai">Hassan</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Mysore">Mysore</option>
+    </select>
+
+    <!-- Date -->
+    <input type="date" id="travel-date" style="padding:10px 15px; border:1px solid #ddd; border-radius:8px; min-width:180px;">
+
+    <!-- Return -->
+    <input type="date" id="return-date" style="padding:10px 15px; border:1px solid #ddd; border-radius:8px; min-width:180px;">
+
+    <!-- Search Button -->
+    <button onclick="searchBus()" style="background:#b71c1c; color:#fff; border:none; padding:12px 25px; border-radius:8px; font-weight:600; cursor:pointer;">
+      SEARCH
+    </button>
+  </div>
+</section>
+
+<script>
+  function searchBus() {
+    const origin = document.getElementById('origin').value;
+    const destination = document.getElementById('destination').value;
+    const date = document.getElementById('travel-date').value;
+    const retDate = document.getElementById('return-date').value;
+
+    if (!origin || !destination || !date) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    alert(`Searching buses from ${origin} to ${destination} on ${date}${retDate ? ' and return on ' + retDate : ''}`);
+  }
+</script>
+
+  </header>
+
+  <!-- Packages -->
+  <section id="OurServices" class="section">
+    <h2>Our Services</h2>
+    <div class="packages">
+      <div class="card">
+        <img src="{{ url_for('static', filename='Bus.jpeg') }}" alt="Minibus">
+        <h3>21 + 1 minibus </h3>
+        <p>Third standard kilometre limit. (Driver beta 6AM to 10PM RS:700)</p>
+      </div>
+        <div class="card">
+        <img src="{{ url_for('static', filename='Innova.jpeg') }}" alt="Innova">
+        <h3>7 + 1  SUV vehicle</h3>
+        <p>Per day minimum kilometre 300 limit. (Driver beta 6:00AM to 10:00PM RS:400)</p>
+      </div>
+        <div class ="card">
+        <img src="{{ url_for('static', filename='Eritiga.jpeg') }}" alt="Eritiga">
+        <h3>6 + 1 SUV vehicle</h3>
+        <p>Per day minimum kilometre 300 limit. (Driver beta 6:00AM to 10:00PM RS:400)</p>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='Car.jpeg') }}" alt="Car">
+        <h3>4 + 1 sudden vehicle</h3>
+        <p>Per day minimum kilometre 300 limit. (Driver beta 6:00AM to 10:00PM RS:300)</p>
+      </div> 
+        <div class="card">
+        <img src="{{ url_for('static', filename='TT.jpeg') }}" alt="TT">
+        <h3>12 + 1 tempo traveller</h3>
+        <p>Per day minimum kilometre 300 limit. (Driver beta 6:00AM to 10:00PM RS:500)</p>
+      </div>
+    </div>
+    <button class="btn">Book Now</button>
+  </section>
+
+  <!-- Contact -->
+<section id="contact" class="section contact">
+  <h2>Book Your Trip</h2>
+  <form action="/book" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email"><br>
+    <input type="text" name="phone" placeholder="Your Phone Number" required><br>
+    <textarea name="message" placeholder="Your Message"></textarea><br>
+    <button type="submit">Submit Booking</button>
+  </form>
+</section>
+
+</section>
+    <footer>
+    <p>© 2025 Shree Chamundeshwari Tours & Travels | All Rights Reserved</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
